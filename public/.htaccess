@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# tem que bater com o caminho até a pasta public
+RewriteBase /1a/ecommerce-auto-pecas-main/ecommerce-auto-pecas-main/public/
+
+# se o arquivo ou pasta existir, entrega direto
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# senão, manda tudo pro index.php
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
