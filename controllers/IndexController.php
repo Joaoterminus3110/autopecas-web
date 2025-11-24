@@ -21,7 +21,7 @@ class IndexController
             header('Location: ' . BASE_URL . '/home');
             exit;
         }
-        render('login', ['titulo' => 'Login']);
+        render('login/login', ['titulo' => 'Login']);
     }
 
     public function verificar()
@@ -43,7 +43,8 @@ class IndexController
             
             $_SESSION["usuario"] = array(
                 "id" => $dadosUsuario->id_usuario,
-                "nome" => $dadosUsuario->nome
+                "nome" => $dadosUsuario->nome,
+                "tipo" => $dadosUsuario->tipo_usuario
             );
 
             // 1. Pega o carrinho que o usuário montou AGORA (como visitante)
@@ -79,7 +80,7 @@ class IndexController
 
     public function cadastro()
     {
-        render('cadastro', ['titulo' => 'Criar Conta']);
+        render('login/cadastro', ['titulo' => 'Criar Conta']);
     }
 
     // 2. Recebe os dados e salva
